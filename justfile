@@ -1,6 +1,11 @@
 template_dir := "./templates"
 archive_dir := "./archive"
 
+alias a := add
+alias bj := add-bj
+alias r := run
+alias ac := archive
+
 # Create a problem folder from a template
 add template name:
   cp -R {{template_dir}}/{{template}} ./{{name}}
