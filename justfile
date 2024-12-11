@@ -4,3 +4,8 @@ template_dir := "./templates"
 add template name:
   cp -R {{template_dir}}/{{template}} ./{{name}}
 
+# Create a BaekJoon problem folder from a template and a problem number
+add-bj template code:
+  cp -R {{template_dir}}/{{template}} ./bj-{{code}}
+  echo "https://www.acmicpc.net/problem/{{code}}" >> ./bj-{{code}}/README.md
+
