@@ -7,6 +7,10 @@
 - Environment to run a script in your favorite language.
   - e.g.: `g++` for C++
 
+## Commands
+
+Use `just -l/--list` for a brief summary of the available commands.
+
 ## Adding Templates
 
 1. create directory with *template name* inside `./templates`
