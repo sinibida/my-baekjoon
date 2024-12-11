@@ -9,3 +9,5 @@ add-bj template code:
   cp -R {{template_dir}}/{{template}} ./bj-{{code}}
   echo "https://www.acmicpc.net/problem/{{code}}" >> ./bj-{{code}}/README.md
 
+archive pattern:
+  find . -name "*{{pattern}}*" | sort | head -1 | xargs -I dir mv dir ./archive
