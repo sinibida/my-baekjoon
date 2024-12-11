@@ -11,3 +11,6 @@ add-bj template code:
 
 archive pattern:
   find . -name "*{{pattern}}*" | sort | head -1 | xargs -I dir mv dir ./archive
+
+run pattern:
+  find . -name "*{{pattern}}*" | xargs -I dir just -f dir/justfile
