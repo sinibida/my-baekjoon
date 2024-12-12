@@ -1,3 +1,14 @@
+debug := if os() == "macos" {
+  "lldb bin </dev/tty"
+} else {
+  "gdb bin </dev/tty"
+}
+
 default:
   g++ program.cpp -o bin
   cat in.txt | ./bin
+
+debug:
+  #!/bin/bash
+  g++ program.cpp -o bin -g
+  {{debug}}

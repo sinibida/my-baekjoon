@@ -22,3 +22,7 @@ archive pattern:
 # Run a problem
 run pattern:
   find . -name "*{{pattern}}*" | xargs -I dir just -f dir/justfile
+
+# Debug a problem
+debug pattern:
+  find . -name "*{{pattern}}*" | xargs -I dir just -f dir/justfile debug
