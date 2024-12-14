@@ -1,0 +1,14 @@
+debug := if os() == "macos" {
+  "lldb -o 'settings set target.input-path in.txt' -o \"target create bin\" -o \"command source -s 0 lldb\" </dev/tty"
+} else {
+  "gdb bin </dev/tty"
+}
+
+default:
+  g++ program.cpp -o bin
+  cat in.txt | ./bin
+
+debug:
+  #!/bin/bash
+  g++ program.cpp -o bin -g
+  {{debug}}

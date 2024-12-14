@@ -1,3 +1,0 @@
-default:
-  g++ program.cpp -o bin
-  cat in.txt | ./bin
