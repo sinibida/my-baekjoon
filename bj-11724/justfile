@@ -1,0 +1,16 @@
+debug := if os() == "macos" {
+  # About `</dev/tty`
+  # https://github.com/casey/just/issues/2304#issuecomment-2282861993
+  "lldb bin </dev/tty"
+} else {
+  "gdb bin </dev/tty"
+}
+
+default:
+  g++ program.cpp -o bin
+  cat in.txt | ./bin
+
+debug:
+  #!/bin/bash
+  g++ program.cpp -o bin -g
+  {{debug}}
