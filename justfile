@@ -6,6 +6,8 @@ alias bj := add-bj
 alias r := run
 alias ac := archive
 
+find_pattern := "find . -name \"*%s*\" -maxdepth 1"
+
 # Create a problem folder from a template
 add template name:
   cp -R {{template_dir}}/{{template}} ./{{name}}
@@ -17,12 +19,12 @@ add-bj template code:
 
 # Archive problem into './archive'
 archive pattern:
-  find . -name "*{{pattern}}*" | sort | head -1 | xargs -I dir mv dir {{archive_dir}}
+  {{replace(find_pattern, "%s", pattern)}} | sort | head -1 | xargs -I dir mv dir {{archive_dir}}
 
 # Run a problem
 run pattern:
-  find . -name "*{{pattern}}*" | xargs -I dir just -f dir/justfile
+  {{replace(find_pattern, "%s", pattern)}} | xargs -I dir just -f dir/justfile
 
 # Debug a problem
 debug pattern:
-  find . -name "*{{pattern}}*" | xargs -I dir just -f dir/justfile debug
+  {{replace(find_pattern, "%s", pattern)}} | xargs -I dir just -f dir/justfile debug
