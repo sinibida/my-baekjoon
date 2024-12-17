@@ -4,7 +4,7 @@ archive_dir := "./archive"
 alias a := add
 alias bj := add-bj
 alias r := run
-alias ac := archive
+alias ar := archive
 
 find_pattern := "find . -name \"*%s*\" -maxdepth 1"
 
