@@ -22,7 +22,8 @@ bool visited[N_MAX * 2 + 1];
 
 int inp_a, inp_b;
 
-bool group_check[N_MAX * 2 + 1];
+int group_cnt = 0;
+int group_label[N_MAX * 2 + 1];
 
 void dfs(int cur) {
   visited[cur] = true;
@@ -46,7 +47,10 @@ void dfs(int cur) {
 
   // cout << "a " << cur << " " << original_order << " " << order[cur] << endl;
   if (original_order == order[cur]) {
-    groups.push_back(group);
+    for (auto x: group) {
+      group_label[x] = group_cnt;
+    }
+    group_cnt++;
     group.clear();
   }
 
@@ -83,6 +87,7 @@ int main() {
   }
 
   // for (size_t i = 1; i <= n * 2; i++) {
+  //   cout << i << "] ";
   //   for (auto x : adj[i]) cout << x << " ";
   //   cout << endl;
   // }
@@ -91,35 +96,20 @@ int main() {
   //   cout << i << ": " << order[i] << endl;
   // }
 
-  // for (auto group : groups) {
-  //   for (auto x : group) cout << x << " ";
-  //   cout << endl;
+  // for (size_t i = 1; i <= n * 2; i++)
+  // {
+  //   cout << i << "] " << group_label[i] << endl;
   // }
 
   bool ok = true;
-  for (vector<int> group : groups) {
-    for (auto x : group) {
-      int at = x;
-      if (at > n) at = NOT(at);
-
-      if (group_check[at]) {
-        ok = false;
-        break;
-      }
-      group_check[at] = true;
-    }
-
-    if (!ok) {
+  for (size_t i = 1; i <= n; i++)
+  {
+    if (group_label[i] == group_label[i + n]) {
+      ok = false;
       break;
     }
-
-    for (auto x : group) {
-      int at = x;
-      if (at > n) at = NOT(at);
-
-      group_check[at] = false;
-    }
   }
+  
 
   cout << (ok ? '1' : '0') << endl;
 }
