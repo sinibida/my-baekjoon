@@ -20,8 +20,6 @@ vector<vector<int> > groups;
 bool working[N_MAX * 2 + 1];
 bool visited[N_MAX * 2 + 1];
 
-int ret;
-
 int inp_a, inp_b;
 
 bool group_check[N_MAX * 2 + 1];
@@ -39,12 +37,14 @@ void dfs(int cur) {
     if (!visited[next]) {
       dfs(next);
     }
-    order[cur] = min(order[next], order[cur]);
+    if (working[next]) {
+      order[cur] = min(order[next], order[cur]);
+    }
   }
 
   group.push_back(cur);
 
-  //cout << "a " << cur << " " << original_order << " " << order[cur] << endl;
+  // cout << "a " << cur << " " << original_order << " " << order[cur] << endl;
   if (original_order == order[cur]) {
     groups.push_back(group);
     group.clear();
@@ -68,7 +68,7 @@ int main() {
     adj[NOT(inp_a)].push_back(inp_b);
     adj[NOT(inp_b)].push_back(inp_a);
   }
-  
+
   for (size_t i = 1; i <= n * 2; i++) {
     visited[i] = false;
     working[i] = false;
@@ -80,8 +80,6 @@ int main() {
     // cout << "[" << i << "]" << endl;
 
     dfs(i);
-
-    ret++;
   }
 
   // for (size_t i = 1; i <= n * 2; i++) {

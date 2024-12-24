@@ -37,7 +37,9 @@ void dfs(int cur) {
     if (!visited[next]) {
       dfs(next);
     }
-    order[cur] = min(order[next], order[cur]);
+    if (working[next]) {
+      order[cur] = min(order[next], order[cur]);
+    }
   }
 
   group.push_back(cur);
