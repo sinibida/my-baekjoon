@@ -36,6 +36,8 @@ void dfs(int from) {
   working[from] = true;
 
   for (auto to : adj[from]) {
+    // POINT 1
+    // 조건문을 정확하게 사용한다.
     if (!num[to]) {
       dfs(to);
       low[from] = min(low[from], low[to]);
@@ -45,8 +47,11 @@ void dfs(int from) {
   }
 
   if (num[from] == low[from]) {
+    // POINT 2
+    // Stack 자료형을 활용하여 SCC를 조회한다.
     vector<int> scc = vector<int>();
 
+    // 
     int top;
     while (true) {
       top = s.top();
