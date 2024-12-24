@@ -19,7 +19,7 @@ int main() {
     bool ok = true;
     for (size_t i = 0; i < n-offset; i++)
     {
-      if (str[i] != str[(i+offset) % n]) {
+      if (str[i] != str[i+offset]) {
         ok = false;
         break;
       }

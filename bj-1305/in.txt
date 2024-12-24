@@ -1,2 +1,2 @@
-10
-aabaacaaba
+6
+aabaaa
