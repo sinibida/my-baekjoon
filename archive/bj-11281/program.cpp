@@ -123,14 +123,24 @@ int main() {
   }
 
   bool ok = true;
-  for (size_t i = 1; i <= n; i++)
-  {
+  for (size_t i = 1; i <= n; i++) {
     if (group_label[i] == group_label[i + n]) {
       ok = false;
       break;
     }
   }
-  
 
-  cout << (ok ? '1' : '0') << endl;
+  if (ok) {
+    cout << "1" << endl;
+  } else {
+    cout << "0" << endl;
+    return 0;
+  }
+
+  // DFS -|therefore|-> group_label-- <=> Topological Order++
+  for (size_t i = 1; i <= n; i++) {
+    int value = group_label[i] < group_label[i + n] ? 1 : 0;
+    cout << value << " ";
+  }
+  cout << endl;
 }
