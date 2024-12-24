@@ -31,7 +31,6 @@ void dfs(int cur) {
 
   int original_order = cur_order;
   order[cur] = cur_order;
-  int min_order = cur_order;
   cur_order++;
 
   for (int next : adj[cur]) {
