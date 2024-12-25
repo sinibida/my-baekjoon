@@ -32,7 +32,15 @@ int main() {
 
   pat[0] = -1;
   int pat_cur = -1;
+  int pat_next = -1;
   for (size_t i = 1; i < p_len; i++) {
+    if (p[i] == p[0]) {
+      pat_next = i;
+    }
+    if (p[i] != p[i - pat_next]) {
+      pat_next = -1;
+    }
+
     if (pat_cur == -1) {
       if (p[i] == p[0]) {
         pat_cur = i;
@@ -44,17 +52,24 @@ int main() {
       if (p[i] == p[i - pat_cur]) {
         pat[i] = pat_cur;
       } else {
-        pat_cur = -1;
-        pat[i] = -1;
+        if (p[i] == p[i - pat_next]) {
+          pat_cur = pat_next;
+          pat[i] = pat_cur;
+        } else {
+          pat_cur = -1;
+          pat[i] = -1;
+        }
       }
     }
   }
-  pat[p_len] = -1;  // For succcess
+  pat[p_len] = -1;  // For success
 
-  // for (size_t i = 0; i <= p_len; i++) {
-  //   cout << pat[i] << " ";
-  // }
-  // cout << endl;
+#ifndef ONLINE_JUDGE
+  for (size_t i = 0; i <= p_len; i++) {
+    cout << pat[i] << " ";
+  }
+  cout << endl;
+#endif
 
   calc[0] = 0;
   for (size_t i = 1; i <= p_len; i++) {
@@ -70,10 +85,12 @@ int main() {
     if (p[i] == p[0]) calc[i]++;
   }
 
-  // for (size_t i = 0; i <= p_len; i++) {
-  //   cout << calc[i] << " ";
-  // }
-  // cout << endl;
+#ifndef ONLINE_JUDGE
+  for (size_t i = 0; i <= p_len; i++) {
+    cout << calc[i] << " ";
+  }
+  cout << endl;
+#endif
 
   t_at = 0;
   p_at = 0;
