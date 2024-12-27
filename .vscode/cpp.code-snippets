@@ -1,0 +1,27 @@
+{
+  // Algorithm
+  "Include Something": {
+    "scope": "cpp,c",
+    "prefix": "in",
+    "body": [
+      "#include <$1>",
+    ],
+    "description": "Include Something"
+  },
+  "Include Algorithm": {
+    "scope": "cpp,c",
+    "prefix": "inal",
+    "body": [
+      "#include <algorithm>",
+    ],
+    "description": "Include Algorithm"
+  },
+  "Include Vector": {
+    "scope": "cpp,c",
+    "prefix": "inv",
+    "body": [
+      "#include <vector>",
+    ],
+    "description": "Include Vector"
+  }
+}
