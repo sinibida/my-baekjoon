@@ -1,0 +1,13 @@
+# debug := if os() == "macos" {
+#   "lldb bin </dev/tty"
+# } else {
+#   "gdb bin </dev/tty"
+# }
+
+default:
+  cat in.txt | python program.py
+
+# debug:
+#   #!/bin/bash
+#   g++ program.cpp -o bin -g
+#   {{debug}}
