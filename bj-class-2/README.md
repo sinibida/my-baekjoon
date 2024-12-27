@@ -23,3 +23,7 @@ https://www.acmicpc.net/problem/1920
 ```
 
 등차 수열의 차!
+
+# 2609
+
+ㅖ
