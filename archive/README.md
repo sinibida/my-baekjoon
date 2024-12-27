@@ -8,4 +8,4 @@
 
 # 2-SAT
 
-[cpp](./bj-11280/program.cpp)
+[cpp](./class-6/bj-11280/program.cpp)
