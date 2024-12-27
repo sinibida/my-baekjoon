@@ -3,9 +3,12 @@
 
 using namespace std;
 
+int N, S, E, T;
+
 int main() {
   cin.tie(NULL);
   ios_base::sync_with_stdio(false);
 
-  cout << "Hello World!" << endl;
+  cin >> N >> S >> E >> T;
+  
 }
