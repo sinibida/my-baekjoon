@@ -6,11 +6,13 @@ debug := if os() == "macos" {
   "gdb bin </dev/tty"
 }
 
+target := "program-10845.cpp"
+
 default:
-  g++ program.cpp -o bin
+  g++ {{target}} -o bin
   cat in.txt | ./bin
 
 debug:
   #!/bin/bash
-  g++ program.cpp -o bin -g
+  g++ {{target}} -o bin -g
   {{debug}}

@@ -46,4 +46,6 @@ https://en.wikipedia.org/wiki/Binary_search#Procedure_for_finding_the_leftmost_e
 
 이진 탐색은 항상 볼때마다 헷갈리는 것 같음
 
+# 10828 & 10845
 
+스택 & 원형큐 삐슝빠슝
