@@ -27,3 +27,15 @@ https://www.acmicpc.net/problem/1920
 # 2609
 
 ㅖ
+
+# 2798
+
+> 카드 3장
+
+문제를 잘 읽자.
+
+# 10814
+
+https://www.geeksforgeeks.org/in-place-merge-sort/
+
+와... 포인터까지 쓰면서 최적화해야하는구나...
