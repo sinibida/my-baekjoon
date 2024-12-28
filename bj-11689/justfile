@@ -1,0 +1,18 @@
+# About `</dev/tty`
+# https://github.com/casey/just/issues/2304#issuecomment-2282861993
+debug := if os() == "macos" {
+  "lldb bin </dev/tty"
+} else {
+  "gdb bin </dev/tty"
+}
+
+target := "program.cpp"
+
+default:
+  g++ {{target}} -o bin
+  cat in.txt | ./bin
+
+debug:
+  #!/bin/bash
+  g++ {{target}} -o bin -g
+  {{debug}}
